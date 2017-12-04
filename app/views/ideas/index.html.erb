@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listando Idéias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Imagem</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td><%= idea.name %></td>
+        <td><%= idea.description %></td>
+        <td><%= idea.picture %></td>
+        <td><%= link_to 'Mostrar', idea %></td>
+        <td><%= link_to 'Editar', edit_idea_path(idea) %></td>
+        <td><%= link_to 'Excluir', idea, method: :delete, data: { confirm: 'Você confirma a exclusão?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Idéia', new_idea_path %>
